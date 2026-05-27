@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Business</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }body {
+  line-height: 1.6;
+  background: #f5f7fb;
+  color: #333;
+}
+
+header {
+  background: #111827;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 20px;
+}
+
+nav a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  color: white;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111827;
+  color: white;
+  margin-top: 40px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #22c55e;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+  </style>
+</head>
+<body><header>
+  <h1>My Business</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="#payment">Payment</a>
+  </nav>
+</header><section class="hero" id="home">
+  <h2>Welcome to My Business</h2>
+  <p>We provide high-quality services tailored to your needs.</p>
+  <a class="btn" href="#contact">Get in Touch</a>
+</section><section class="section" id="services">
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Service 1</h3>
+      <p>Describe your service here.</p>
+    </div>
+    <div class="card">
+      <h3>Service 2</h3>
+      <p>Describe your service here.</p>
+    </div>
+    <div class="card">
+      <h3>Service 3</h3>
+      <p>Describe your service here.</p>
+    </div>
+  </div>
+</section><section class="section" id="contact">
+  <h2>Contact Us</h2>
+  <div class="card">
+    <form onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="status"></p>
+  </div>
+</section><section class="section" id="payment">
+  <h2>Payment</h2>
+  <div class="card">
+    <p>Click below to proceed with secure payment.</p>
+    <button onclick="payNow()">Pay Now</button>
+    <p id="paymentStatus"></p>
+  </div>
+</section><footer>
+  <p>© 2026 My Business. All rights reserved.</p>
+</footer><script>
+  function sendMessage(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    document.getElementById('status').innerText =
+      `Thanks ${name}, we received your message!`;
+
+    // Simple WhatsApp fallback
+    const whatsappUrl = `https://wa.me/?text=Name:%20${name}%0AEmail:%20${email}%0AMessage:%20${message}`;
+    window.open(whatsappUrl, '_blank');
+  }
+
+  function payNow() {
+    // Placeholder for Stripe or payment gateway integration
+    document.getElementById('paymentStatus').innerText =
+      "Payment system not connected yet. Next step: integrate Stripe or Mobile Money API.";
+
+    alert("Redirecting to payment gateway (demo)");
+  }
+</script></body>
+</html>
